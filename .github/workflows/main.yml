@@ -1,19 +1,27 @@
 name: Auto Release on Merge
 
-# 触发条件：当 PR 被关闭时
+# 触发条件：当 PR 被关闭时，或者手动触发
 on:
   pull_request:
     types: [closed]
     branches:
       - main
+  # 新增：允许手动点击按钮触发
+  workflow_dispatch:
+    inputs:
+      manual_version:
+        description: '版本号 (可选，留空则自动生成)'
+        required: false
+        type: string
 
-# 权限设置
 permissions:
   contents: write
 
 jobs:
   build-and-release:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main')
 
     runs-on: ubuntu-latest
 
@@ -24,16 +32,39 @@ jobs:
       - name: Generate Tag Name
         id: tag
         run: |
-          echo "release_tag=v$(date +'%Y%m%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          if [ -n "${{ inputs.manual_version }}" ]; then
+            echo "release_tag=${{ inputs.manual_version }}" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=v$(date +'%Y%m%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          fi
 
-      # 打包你指定的 4 个文件夹
+      # 新增：生成发布说明 (因为手动触发没有 PR 信息，需要区分处理)
+      - name: Generate Release Body
+        id: body
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "release_body=手动触发发布。触发者: @${{ github.actor }}" >> $GITHUB_OUTPUT
+          else
+            # 使用 EOF 写入多行文本到 output
+            {
+              echo 'release_body<<EOF'
+              echo '自动发布由 PR 合并触发。'
+              echo ''
+              echo '**合并详情：**'
+              echo '- 标题: ${{ github.event.pull_request.title }}'
+              echo '- 提交人: @${{ github.event.pull_request.user.login }}'
+              echo '- 原分支: ${{ github.event.pull_request.head.ref }}'
+              echo '- PR 链接: ${{ github.event.pull_request.html_url }}'
+              echo 'EOF'
+            } >> $GITHUB_OUTPUT
+          fi
+
       - name: Zip specific folders
         run: |
           REPO_NAME="${{ github.event.repository.name }}"
           echo "Packing for $REPO_NAME..."
 
           # -q 表示安静模式，-r 表示递归
-          # 尝试打包，如果文件夹不存在 zip 会警告，但通常不会中断流程（除非设置了 -e）
           zip -q -r "${REPO_NAME}.zip" 1.6 About Common Languages
 
       # 创建 Release 并上传
@@ -42,14 +73,7 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           name: Release ${{ steps.tag.outputs.release_tag }}
-          body: |
-            自动发布由 PR 合并触发。
-
-            **合并详情：**
-            - 标题: ${{ github.event.pull_request.title }}
-            - 提交人: @${{ github.event.pull_request.user.login }}
-            - 原分支: ${{ github.event.pull_request.head.ref }}
-            - PR 链接: ${{ github.event.pull_request.html_url }}
+          body: ${{ steps.body.outputs.release_body }}
           files: |
             ${{ github.event.repository.name }}.zip
         env:
