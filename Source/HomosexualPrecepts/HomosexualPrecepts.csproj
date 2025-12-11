@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <!-- 在 .csproj 同级目录下创建 Directory.Build.props 手动指定自己的 RW 路径 -->
+    <!--
+    Directory.Build.props:
+      <Project>
+        <PropertyGroup>
+          <RimWorldPath>path\to\rimworld</RimWorldPath>
+        </PropertyGroup>
+      </Project>
+    -->
+    <!-- 使用 Directory.Build.props 也行，内容跟上面的一样 -->
+    <Import Project="Local.props" Condition="Exists('Local.props')"/>
+
+    <!-- 如果没有，查找环境变量 RIMWORLD_DIR -->
+    <PropertyGroup Condition=" '$(RimWorldPath)' == '' ">
+        <RimWorldPath>$(RIMWORLD_DIR)</RimWorldPath>
+    </PropertyGroup>
+
+    <!-- 全平台兜底 -->
+    <!-- https://learn.microsoft.com/zh-cn/visualstudio/msbuild/property-functions?view=vs-2022 -->
+    <PropertyGroup Condition=" '$(RimWorldPath)' == '' and $([System.OperatingSystem]::IsWindows()) and Exists('C:\Program Files (x86)\Steam\steamapps\common\RimWorld') ">
+        <RimWorldPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld</RimWorldPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(RimWorldPath)' == '' and $([System.OperatingSystem]::IsLinux()) and Exists('$(HOME)/.steam/steam/steamapps/common/RimWorld') ">
+        <RimWorldPath>$(HOME)/.steam/steam/steamapps/common/RimWorld</RimWorldPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(RimWorldPath)' == '' and $([System.OperatingSystem]::IsMacOS()) and Exists('$(HOME)/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app') ">
+        <RimWorldPath>$(HOME)/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app</RimWorldPath>
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition=" $([System.OperatingSystem]::IsWindows()) ">
+            <PropertyGroup>
+                <RimWorldManagedPath>$(RimWorldPath)\RimWorldWin64_Data\Managed</RimWorldManagedPath>
+            </PropertyGroup>
+        </When>
+
+        <When Condition=" $([System.OperatingSystem]::IsLinux()) ">
+            <PropertyGroup>
+                <RimWorldManagedPath>$(RimWorldPath)/RimWorldLinux_Data/Managed</RimWorldManagedPath>
+            </PropertyGroup>
+        </When>
+
+        <When Condition=" $([System.OperatingSystem]::IsMacOS()) ">
+            <PropertyGroup>
+                <RimWorldManagedPath>$(RimWorldPath)/Contents/Resources/Data/Managed</RimWorldManagedPath>
+            </PropertyGroup>
+        </When>
+    </Choose>
+
+    <PropertyGroup>
+        <RimWorldVersionFile>$(RimWorldPath)\Version.txt</RimWorldVersionFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="Exists('$(RimWorldVersionFile)')">
+        <RawVersionContent>$([System.IO.File]::ReadAllText('$(RimWorldVersionFile)'))</RawVersionContent>
+        <RimWorldVersion>$([System.Text.RegularExpressions.Regex]::Match($(RawVersionContent), '^\d+\.\d+'))</RimWorldVersion>
+    </PropertyGroup>
+    <!-- 兜底 -->
+    <PropertyGroup Condition=" '$(RimWorldVersion)' == '' ">
+        <RimWorldVersion>1.6</RimWorldVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <OutputType>Library</OutputType>
+        <RootNamespace>HomosexualPrecepts</RootNamespace>
+        <AssemblyName>HomosexualPrecepts</AssemblyName>
+        <LangVersion>10</LangVersion>
+        <PlatformTarget>x64</PlatformTarget>
+        <Deterministic>false</Deterministic>
+
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <OutputPath>$(RIMWORLD_DIR)\Mods\HomosexualPrecepts\$(RimWorldVersion)\Assemblies\</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <OutputPath>$(RIMWORLD_DIR)\Mods\HomosexualPrecepts\$(RimWorldVersion)\Assemblies\</OutputPath>
+        <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="$(RimWorldPath)\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" Private="False"/>
+        <Reference Include="$(RimWorldPath)\RimWorldWin64_Data\Managed\Unity*" Private="False"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Lib.Harmony.Ref" Version="2.4.1"/>
+    </ItemGroup>
+</Project>

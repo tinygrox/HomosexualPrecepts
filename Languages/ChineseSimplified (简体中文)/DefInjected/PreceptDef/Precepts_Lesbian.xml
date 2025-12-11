@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: abhorrent -->
+  <Homo_Lesbian_Abhorrent.label>厌恶</Homo_Lesbian_Abhorrent.label>
+  <!-- EN: So disgusting! -->
+  <Homo_Lesbian_Abhorrent.description>女同真恶心。</Homo_Lesbian_Abhorrent.description>
+
+  <!-- EN: acceptable -->
+  <Homo_Lesbian_Approved.label>赞同</Homo_Lesbian_Approved.label>
+  <!-- EN: It's very normal. -->
+  <Homo_Lesbian_Approved.description>这种事在我们这是很正常的。</Homo_Lesbian_Approved.description>
+
+  <!-- EN: honorable -->
+  <Homo_Lesbian_Honorable.label>推崇</Homo_Lesbian_Honorable.label>
+  <!-- EN: Being Gay is so honorable! -->
+  <Homo_Lesbian_Honorable.description>同性才是真爱！</Homo_Lesbian_Honorable.description>
+
+</LanguageData>

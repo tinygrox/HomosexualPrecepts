@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: Gay in Colony -->
+  <HomoThought_ColonyGay_Abhorrent.stages.Gay_in_Colony.label>殖民地存在男同性恋</HomoThought_ColonyGay_Abhorrent.stages.Gay_in_Colony.label>
+  <!-- EN: Disgusting gay live in our community, bah. -->
+  <HomoThought_ColonyGay_Abhorrent.stages.Gay_in_Colony.description>有恶心的男同跟我们一起生活，真恶心</HomoThought_ColonyGay_Abhorrent.stages.Gay_in_Colony.description>
+
+  <!-- EN: Heterosexual in Colony -->
+  <HomoThought_ColonyHeterosexual_Abhorrent.stages.Heterosexual_in_Colony.label>殖民地存在异性恋</HomoThought_ColonyHeterosexual_Abhorrent.stages.Heterosexual_in_Colony.label>
+  <!-- EN: Someone in the community is engaging in impure heterosexual union, violating our beliefs. -->
+  <HomoThought_ColonyHeterosexual_Abhorrent.stages.Heterosexual_in_Colony.description>有人找了异性作为伴侣，真是世风日下</HomoThought_ColonyHeterosexual_Abhorrent.stages.Heterosexual_in_Colony.description>
+
+  <!-- EN: Lesbian in Colony -->
+  <HomoThought_ColonyLesbian_Abhorrent.stages.Lesbian_in_Colony.label>殖民地存在女同性恋</HomoThought_ColonyLesbian_Abhorrent.stages.Lesbian_in_Colony.label>
+  <!-- EN: Our community is damn by those lesbian. -->
+  <HomoThought_ColonyLesbian_Abhorrent.stages.Lesbian_in_Colony.description>我们的社区环境被女同污染了</HomoThought_ColonyLesbian_Abhorrent.stages.Lesbian_in_Colony.description>
+
+  <!-- EN: Gay -->
+  <HomoThought_Gay_Abhorrent.stages.Gay.label>男同性恋</HomoThought_Gay_Abhorrent.stages.Gay.label>
+
+  <!-- EN: Heterosexual -->
+  <HomoThought_Heterosexual_Abhorrent.stages.Heterosexual.label>异性恋</HomoThought_Heterosexual_Abhorrent.stages.Heterosexual.label>
+
+  <!-- EN: Lesbian -->
+  <HomoThought_Lesbian_Abhorrent.stages.Lesbian.label>女同性恋</HomoThought_Lesbian_Abhorrent.stages.Lesbian.label>
+
+</LanguageData>

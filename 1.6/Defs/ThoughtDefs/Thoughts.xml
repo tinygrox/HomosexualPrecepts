@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- 女同 -->
+  <ThoughtDef>
+    <defName>HomoThought_Lesbian_Abhorrent</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Lesbian_Abhorrent</workerClass>
+    <stages>
+      <li>
+        <label>Lesbian</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Gay</li>
+      <li>Bisexual</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>HomoThought_ColonyLesbian_Abhorrent</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyLesbianAbhorrent</workerClass>
+    <stages>
+      <li>
+        <label>Lesbian in Colony</label>
+        <description>Our community is damn by those lesbian.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Gay</li>
+      <li>Bisexual</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <!-- 男同 -->
+  <ThoughtDef>
+    <defName>HomoThought_Gay_Abhorrent</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Gay_Abhorrent</workerClass>
+    <stages>
+      <li>
+        <label>Gay</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Gay</li>
+      <li>Bisexual</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>HomoThought_ColonyGay_Abhorrent</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyGayAbhorrent</workerClass>
+    <stages>
+      <li>
+        <label>Gay in Colony</label>
+        <description>Disgusting gay live in our community, bah.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Gay</li>
+      <li>Bisexual</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <!-- FFF -->
+  <ThoughtDef>
+    <defName>HomoThought_Heterosexual_Abhorrent</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Heterosexual_Abhorrent</workerClass>
+    <stages>
+      <li>
+        <label>Heterosexual</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Bisexual</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>HomoThought_ColonyHeterosexual_Abhorrent</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyHeterosexualAbhorrent</workerClass>
+    <stages>
+      <li>
+        <label>Heterosexual in Colony</label>
+        <description>Someone in the community is engaging in impure heterosexual union, violating our beliefs.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+    <nullifyingTraits>
+      <li>Bisexual</li>
+    </nullifyingTraits>
+  </ThoughtDef>
+</Defs>

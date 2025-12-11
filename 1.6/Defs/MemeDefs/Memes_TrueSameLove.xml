@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <MemeDef>
+    <defName>HomoMeme_TrueSameLove</defName>
+    <label>True Same-Sex Love</label>
+    <description>This ideology believes that true love can only exist between equals of the same gender. Heterosexual unions are merely for procreation, while same-sex unions are a resonance of the soul.</description>
+    <!-- 图标记得改 -->
+    <iconPath>UI/Memes/Rancher</iconPath>
+    <groupDef>Misc</groupDef>
+    <impact>2</impact>
+    <renderOrder>80</renderOrder>
+    <requireOne>
+      <li>
+        <li>Homo_Lesbian_Honorable</li>
+      </li>
+      <li>
+        <li>Homo_Gay_Honorable</li>
+      </li>
+      <li>
+        <li>Homo_Heterosexual_Abhorrent</li>
+      </li>
+    </requireOne>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective->pure</li>
+        <li>memeAdjective->same-sex</li>
+        <li>memeHyphenPrefix->homo</li>
+        <li>memeConcept->pure love</li>
+        <li>memeLeaderNoun->paragon</li>
+        <li>memeLeaderNoun->lover</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>creation(tag=meme_HomoMeme_TrueSameLove) -> [deity0_name] split the original being into two halves of the same kind, so they might find perfect understanding.</li>
+          <li>episode(uses=1,tag=meme_HomoMeme_TrueSameLove) -> The believers saw that those who loved their own kind walked in the light of [deity0_name].</li>
+          <li>intro(tag=meme_HomoMeme_TrueSameLove) -> In the early days, the people realized that spiritual connection was strongest between those who shared the same essence.</li>
+          <li>conflict(tag=meme_HomoMeme_TrueSameLove) -> The [foeLeader] tried to force unnatural unions upon the [memberNamePlural], forbidding their true loves.</li>
+          <li>victory(tag=meme_HomoMeme_TrueSameLove) -> [founderName] defeated the oppressors and established a sanctuary where love knows no bound, provided it is pure.</li>
+          <li>setup(tag=meme_HomoMeme_TrueSameLove) -> Our founders built a community dedicated to the celebration of same-sex unions.</li>
+          <li>story(uses=1,tag=meme_HomoMeme_TrueSameLove) -> They lived in harmony, proving that love between equals is the strongest bond.</li>
+          <li>lesson(tag=meme_HomoMeme_TrueSameLove) -> perfection is found in the reflection of oneself</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+    <symbolPacks>
+      <li>
+        <ideoName>Love</ideoName>
+        <theme>love</theme>
+        <adjective>loving</adjective>
+        <member>lover</member>
+      </li>
+      <li>
+        <ideoName>Purity</ideoName>
+        <theme>purity</theme>
+        <adjective>pure</adjective>
+        <member>purist</member>
+      </li>
+    </symbolPacks>
+  </MemeDef>
+</Defs>

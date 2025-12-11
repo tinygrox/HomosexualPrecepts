@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <!-- EN: abhorrent -->
+  <Homo_Heterosexual_Abhorrent.label>厌恶</Homo_Heterosexual_Abhorrent.label>
+  <!-- EN: So disgusting! -->
+  <Homo_Heterosexual_Abhorrent.description>异性恋真恶心</Homo_Heterosexual_Abhorrent.description>
+
+  <Homo_Heterosexual_Approved.label>认可</Homo_Heterosexual_Approved.label>
+  <Homo_Heterosexual_Approved.description>最正常不过的事</Homo_Heterosexual_Approved.description>
+</LanguageData>

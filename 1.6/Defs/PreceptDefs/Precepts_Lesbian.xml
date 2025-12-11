@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IssueDef>
+    <defName>HomoIssue_Lesbian</defName>
+    <label>Lesbian</label>
+    <!-- 自己改图标哦 -->
+    <iconPath>UI/Issues/DrugUse</iconPath>
+  </IssueDef>
+
+  <PreceptDef>
+    <defName>Homo_Lesbian_Approved</defName>
+    <issue>HomoIssue_Lesbian</issue>
+    <label>acceptable</label>
+    <description>It's very normal.</description>
+    <impact>Low</impact>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <preceptClass>HomosexualPrecepts.Precepts.Precept_ForcedTrait</preceptClass>
+    <comps>
+      <li Class="HomosexualPrecepts.PreceptComps.PreceptComp_ForceMemberTrait">
+        <addTrait>Bisexual</addTrait>
+        <notForGender>Male</notForGender>
+        <nullifyingTraits>
+          <li>Gay</li>
+          <li>Asexual</li>
+        </nullifyingTraits>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>Homo_Lesbian_Abhorrent</defName>
+    <issue>HomoIssue_Lesbian</issue>
+    <label>abhorrent</label>
+    <description>So disgusting!</description>
+    <impact>Low</impact>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <preceptClass>HomosexualPrecepts.Precepts.Precept_ForcedTrait</preceptClass>
+    <comps>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>HomoThought_Lesbian_Abhorrent</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>HomoThought_ColonyLesbian_Abhorrent</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>Homo_Lesbian_Honorable</defName>
+    <issue>HomoIssue_Lesbian</issue>
+    <label>honorable</label>
+    <description>Being Gay is so honorable!</description>
+    <impact>Low</impact>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <preceptClass>HomosexualPrecepts.Precepts.Precept_ForcedTrait</preceptClass>
+    <comps>
+      <li Class="HomosexualPrecepts.PreceptComps.PreceptComp_ForceMemberTrait">
+        <addTrait>Gay</addTrait>
+        <notForGender>Male</notForGender>
+        <nullifyingTraits>
+          <li>Bisexual</li>
+          <li>Asexual</li>
+        </nullifyingTraits>
+      </li>
+    </comps>
+  </PreceptDef>
+</Defs>

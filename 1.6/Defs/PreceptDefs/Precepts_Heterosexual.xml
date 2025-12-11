@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <IssueDef>
+    <defName>HomoIssue_Heterosexual</defName>
+    <label>Heterosexual</label>
+    <!-- 自己改图标哦 -->
+    <iconPath>UI/Issues/DrugUse</iconPath>
+  </IssueDef>
+
+  <PreceptDef>
+    <defName>Homo_Heterosexual_Approved</defName>
+    <issue>HomoIssue_Heterosexual</issue>
+    <label>acceptable</label>
+    <description>It's very normal.</description>
+    <impact>Low</impact>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <preceptClass>HomosexualPrecepts.Precepts.Precept_ForcedTrait</preceptClass>
+  </PreceptDef>
+
+  <PreceptDef>
+    <defName>Homo_Heterosexual_Abhorrent</defName>
+    <issue>HomoIssue_Heterosexual</issue>
+    <label>abhorrent</label>
+    <description>So disgusting!</description>
+    <impact>Low</impact>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <preceptClass>HomosexualPrecepts.Precepts.Precept_ForcedTrait</preceptClass>
+    <comps>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>HomoThought_Heterosexual_Abhorrent</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>HomoThought_ColonyHeterosexual_Abhorrent</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+
+  <!-- <PreceptDef>
+    <defName>Homo_Heterosexual_Honorable</defName>
+    <issue>HomoIssue_Heterosexual</issue>
+    <label>honorable</label>
+    <description>Being Gay is so honorable!</description>
+    <impact>Low</impact>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <preceptClass>HomosexualPrecepts.Precepts.Precept_ForcedTrait</preceptClass>
+    <comps>
+      <li Class="HomosexualPrecepts.PreceptComps.PreceptComp_ForceMemberTrait">
+        <addTrait>Gay</addTrait>
+        <notForGender>Female</notForGender>
+        <nullifyingTraits>
+          <li>Bisexual</li>
+        </nullifyingTraits>
+      </li>
+    </comps>
+  </PreceptDef> -->
+</Defs>
