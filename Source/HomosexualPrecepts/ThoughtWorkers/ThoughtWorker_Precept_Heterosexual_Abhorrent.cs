@@ -12,6 +12,17 @@ public class ThoughtWorker_Precept_Heterosexual_Abhorrent: ThoughtWorker_Precept
 
         if(ThoughtUtility.ThoughtNullified(p, def)) return ThoughtState.Inactive;
 
+        if (otherPawn.story?.traits != null)
+        {
+            bool hasBisexualTrait = otherPawn.story.traits.HasTrait(TraitDefOf.Bisexual);
+            bool hasGayTrait = otherPawn.story.traits.HasTrait(TraitDefOf.Gay);
+            bool hasAsexualTrait = otherPawn.story.traits.HasTrait(TraitDefOf.Asexual);
+            if (!hasGayTrait && !hasBisexualTrait && !hasAsexualTrait)
+            {
+                return ThoughtState.ActiveDefault;
+            }
+        }
+
         List<DirectPawnRelation> allLoveRelations = LovePartnerRelationUtility.ExistingLovePartners(otherPawn, allowDead: false);
 
         foreach (DirectPawnRelation relation in allLoveRelations)
