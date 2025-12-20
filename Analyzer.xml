@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Analyzer>
+  <ThoughtWorker_Orientation_Social>
+    <Types>
+      <li>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Social</li>
+    </Types>
+  </ThoughtWorker_Orientation_Social>
+  <ThoughtWorker_Orientation_Colony>
+    <Types>
+      <li>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Colony</li>
+    </Types>
+  </ThoughtWorker_Orientation_Colony>
+  <Precept_ForcedTrait>
+    <Types>
+      <li>HomosexualPrecepts.Precepts.Precept_ForcedTrait</li>
+    </Types>
+  </Precept_ForcedTrait>
+</Analyzer>

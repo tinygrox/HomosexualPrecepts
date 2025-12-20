@@ -78,19 +78,15 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <OutputPath>$(RIMWORLD_DIR)\Mods\HomosexualPrecepts\$(RimWorldVersion)\Assemblies\</OutputPath>
+        <OutputPath>$(RimWorldPath)\Mods\HomosexualPrecepts\$(RimWorldVersion)\Assemblies\</OutputPath>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <OutputPath>$(RIMWORLD_DIR)\Mods\HomosexualPrecepts\$(RimWorldVersion)\Assemblies\</OutputPath>
+        <OutputPath>$(RimWorldPath)\Mods\HomosexualPrecepts\$(RimWorldVersion)\Assemblies\</OutputPath>
         <DebugType>none</DebugType>
     </PropertyGroup>
 
     <ItemGroup>
-        <Reference Include="$(RimWorldPath)\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" Private="False"/>
-        <Reference Include="$(RimWorldPath)\RimWorldWin64_Data\Managed\Unity*" Private="False"/>
-    </ItemGroup>
-
-    <ItemGroup>
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4633" />
         <PackageReference Include="Lib.Harmony.Ref" Version="2.4.1"/>
     </ItemGroup>
 </Project>
