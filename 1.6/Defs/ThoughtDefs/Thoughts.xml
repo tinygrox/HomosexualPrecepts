@@ -4,7 +4,8 @@
   <ThoughtDef>
     <defName>HomoThought_Lesbian_Abhorrent</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
-    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Lesbian_Abhorrent</workerClass>
+    <!-- <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Lesbian_Abhorrent</workerClass> -->
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Social</workerClass>
     <stages>
       <li>
         <label>Lesbian</label>
@@ -15,12 +16,25 @@
       <li>Gay</li>
       <li>Bisexual</li>
     </nullifyingTraits>
+
+    <!-- 用法示例 -->
+    <!-- 女同：厌恶 —— 1.只针对女性 2.是 Gay 3.有同性伴侣 -->
+    <modExtensions>
+      <li Class="HomosexualPrecepts.DefModExtensions.ThoughtConfigModExtension">
+        <genderRequirement>Female</genderRequirement>        <!-- 只检查女性 -->
+        <traitsAbhorrent>
+          <li>Gay</li>          <!-- 对方拥有 Gay 特质就破戒 -->
+        </traitsAbhorrent>
+        <sameSexAbhorrent>true</sameSexAbhorrent>        <!-- 对方存在同性关系就破戒 -->
+      </li>
+    </modExtensions>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>HomoThought_ColonyLesbian_Abhorrent</defName>
     <thoughtClass>Thought_Situational</thoughtClass>
-    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyLesbianAbhorrent</workerClass>
+    <!-- <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyLesbianAbhorrent</workerClass> -->
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Colony</workerClass>
     <stages>
       <li>
         <label>Lesbian in Colony</label>
@@ -32,13 +46,26 @@
       <li>Gay</li>
       <li>Bisexual</li>
     </nullifyingTraits>
+
+    <!-- 殖民地女同判断 -->
+    <!-- 1.只针对女性 2.是 Gay 3.有同性伴侣 -->
+    <modExtensions>
+      <li Class="HomosexualPrecepts.DefModExtensions.ThoughtConfigModExtension">
+        <genderRequirement>Female</genderRequirement>
+        <traitsAbhorrent>
+          <li>Gay</li>
+        </traitsAbhorrent>
+        <sameSexAbhorrent>true</sameSexAbhorrent>
+      </li>
+    </modExtensions>
   </ThoughtDef>
 
   <!-- 男同 -->
   <ThoughtDef>
     <defName>HomoThought_Gay_Abhorrent</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
-    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Gay_Abhorrent</workerClass>
+    <!-- <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Gay_Abhorrent</workerClass> -->
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Social</workerClass>
     <stages>
       <li>
         <label>Gay</label>
@@ -49,12 +76,25 @@
       <li>Gay</li>
       <li>Bisexual</li>
     </nullifyingTraits>
+
+    <!-- 男同判断 -->
+    <!-- 1.只针对男性 2.是 Gay 3.有同性伴侣 -->
+    <modExtensions>
+      <li Class="HomosexualPrecepts.DefModExtensions.ThoughtConfigModExtension">
+        <genderRequirement>Male</genderRequirement>
+        <traitsAbhorrent>
+          <li>Gay</li>
+        </traitsAbhorrent>
+        <sameSexAbhorrent>true</sameSexAbhorrent>
+      </li>
+    </modExtensions>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>HomoThought_ColonyGay_Abhorrent</defName>
     <thoughtClass>Thought_Situational</thoughtClass>
-    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyGayAbhorrent</workerClass>
+    <!-- <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyGayAbhorrent</workerClass> -->
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Colony</workerClass>
     <stages>
       <li>
         <label>Gay in Colony</label>
@@ -66,13 +106,23 @@
       <li>Gay</li>
       <li>Bisexual</li>
     </nullifyingTraits>
+    <modExtensions>
+      <li Class="HomosexualPrecepts.DefModExtensions.ThoughtConfigModExtension">
+        <genderRequirement>Male</genderRequirement>
+        <traitsAbhorrent>
+          <li>Gay</li>
+        </traitsAbhorrent>
+        <sameSexAbhorrent>true</sameSexAbhorrent>
+      </li>
+    </modExtensions>
   </ThoughtDef>
 
   <!-- FFF -->
   <ThoughtDef>
     <defName>HomoThought_Heterosexual_Abhorrent</defName>
     <thoughtClass>Thought_SituationalSocial</thoughtClass>
-    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Heterosexual_Abhorrent</workerClass>
+    <!-- <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_Heterosexual_Abhorrent</workerClass> -->
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Social</workerClass>
     <stages>
       <li>
         <label>Heterosexual</label>
@@ -82,12 +132,28 @@
     <nullifyingTraits>
       <li>Bisexual</li>
     </nullifyingTraits>
+
+    <!-- 厌恶异性恋 -->
+    <!-- 1.非 Gay Bisexual Asexual 2.有异性伴侣 -->
+    <modExtensions>
+      <li Class="HomosexualPrecepts.DefModExtensions.ThoughtConfigModExtension">
+        <!-- 不受影响的 Trait -->
+        <traitsAccepted>
+          <li>Gay</li>
+          <li>Bisexual</li>
+          <li>Asexual</li>
+        </traitsAccepted>
+        <!-- 是否厌恶异性恋 -->
+        <heterosexualAbhorrent>true</heterosexualAbhorrent>
+      </li>
+    </modExtensions>
   </ThoughtDef>
 
   <ThoughtDef>
     <defName>HomoThought_ColonyHeterosexual_Abhorrent</defName>
     <thoughtClass>Thought_Situational</thoughtClass>
-    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyHeterosexualAbhorrent</workerClass>
+    <!-- <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Precept_ColonyHeterosexualAbhorrent</workerClass> -->
+    <workerClass>HomosexualPrecepts.ThoughtWorkers.ThoughtWorker_Orientation_Colony</workerClass>
     <stages>
       <li>
         <label>Heterosexual in Colony</label>
@@ -98,5 +164,16 @@
     <nullifyingTraits>
       <li>Bisexual</li>
     </nullifyingTraits>
+
+    <modExtensions>
+      <li Class="HomosexualPrecepts.DefModExtensions.ThoughtConfigModExtension">
+        <traitsAccepted>
+          <li>Gay</li>
+          <li>Bisexual</li>
+          <li>Asexual</li>
+        </traitsAccepted>
+        <heterosexualAbhorrent>true</heterosexualAbhorrent>
+      </li>
+    </modExtensions>
   </ThoughtDef>
 </Defs>
